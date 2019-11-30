@@ -22,7 +22,7 @@
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundlePlatforms>x86|x64|arm|arm64</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>2C745E4C4B01411A78390D219D7D9260EA29C15C</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>9D5A2D7CB6732316D0F6C25AC4979243949F9B7D</PackageCertificateThumbprint>
     <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
     <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
     <AppxBundle>Always</AppxBundle>

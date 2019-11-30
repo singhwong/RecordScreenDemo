@@ -47,11 +47,13 @@ namespace SimpleRecorder
 
             var settings = GetCachedSettings();
 
-            var names = new List<string>();
-            names.Add(nameof(VideoEncodingQuality.HD1080p));
-            names.Add(nameof(VideoEncodingQuality.HD720p));
-            names.Add(nameof(VideoEncodingQuality.Uhd2160p));
-            names.Add(nameof(VideoEncodingQuality.Uhd4320p));
+            var names = new List<string>
+            {
+                nameof(VideoEncodingQuality.HD1080p),
+                nameof(VideoEncodingQuality.HD720p),
+                nameof(VideoEncodingQuality.Uhd2160p),
+                nameof(VideoEncodingQuality.Uhd4320p)
+            };
             QualityComboBox.ItemsSource = names;
             QualityComboBox.SelectedIndex = names.IndexOf(settings.Quality.ToString());
 
@@ -77,6 +79,7 @@ namespace SimpleRecorder
             var height = temp.Video.Height;
 
             // Get our capture item
+            //让用户选择哪个应用
             var picker = new GraphicsCapturePicker();
             var item = await picker.PickSingleItemAsync();
             if (item == null)
@@ -163,13 +166,15 @@ namespace SimpleRecorder
             MainProgressBar.IsIndeterminate = false;
 
             // Open the final product
-            await Launcher.LaunchFileAsync(newFile);
+            //录制完成后打开文件
+            //await Launcher.LaunchFileAsync(newFile);
         }
 
         private void ToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
             // If the encoder is doing stuff, tell it to stop
             //captureSession.Dispose();
+            //条件符合运算符
             _encoder?.Dispose();
         }
 
@@ -311,8 +316,8 @@ namespace SimpleRecorder
                 1,
                 // 每个缓冲区大小
                 item.Size); // Size of the buffers
-
-            framePool.FrameArrived += (s, a) =>
+            // 界面刷新的时候将会触发这个事件
+            framePool.FrameArrived += async (s, a) =>
             {
                 using (var frame = framePool.TryGetNextFrame())
                 {
@@ -334,6 +339,7 @@ namespace SimpleRecorder
                     catch (Exception e) when (_canvasDevice.IsDeviceLost(e.HResult))
                     {
                         // 设备丢失
+                        await new MessageDialog("捕获应用窗口失败").ShowAsync();
                     }
                 }
             };
