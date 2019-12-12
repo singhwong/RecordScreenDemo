@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="zh-Hans" original="SIMPLERECORDER/STRING/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6915.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="SIMPLERECORDER/STRING/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="AutoPlayVideo_CheckBox.Content" translate="yes" xml:space="preserve">
+          <source>Automatically open files after recording</source>
+          <target state="translated">录制结束后自动打开文件</target>
+        </trans-unit>
+        <trans-unit id="MainTextBlock.Text" translate="yes" xml:space="preserve">
+          <source>Click the start button to start recording</source>
+          <target state="translated">点击开始按钮开始录制</target>
+        </trans-unit>
+        <trans-unit id="options_textBlock.Text" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <target state="translated">选项</target>
+        </trans-unit>
+        <trans-unit id="UseCaptureItemSizeCheckBox.Content" translate="yes" xml:space="preserve">
+          <source>Use source size as video resolution</source>
+          <target state="translated">原始分辨率</target>
+        </trans-unit>
+        <trans-unit id="done_str" translate="yes" xml:space="preserve">
+          <source>Done</source>
+          <target state="translated">录制完成</target>
+        </trans-unit>
+        <trans-unit id="recording_str" translate="yes" xml:space="preserve">
+          <source>● Rec</source>
+          <target state="translated">● 录制中</target>
+        </trans-unit>
+        <trans-unit id="saveCanceled_str" translate="yes" xml:space="preserve">
+          <source>Save canceled</source>
+          <target state="translated">保存取消</target>
+        </trans-unit>
+        <trans-unit id="saving_str" translate="yes" xml:space="preserve">
+          <source>Saving...</source>
+          <target state="translated">保存中...</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

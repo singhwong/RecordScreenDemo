@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AutoPlayVideo_CheckBox.Content" xml:space="preserve">
+    <value>录制结束后自动打开文件</value>
+  </data>
+  <data name="MainTextBlock.Text" xml:space="preserve">
+    <value>点击开始按钮开始录制</value>
+  </data>
+  <data name="options_textBlock.Text" xml:space="preserve">
+    <value>选项</value>
+  </data>
+  <data name="UseCaptureItemSizeCheckBox.Content" xml:space="preserve">
+    <value>原始分辨率</value>
+  </data>
+  <data name="done_str" xml:space="preserve">
+    <value>录制完成</value>
+  </data>
+  <data name="recording_str" xml:space="preserve">
+    <value>● 录制中</value>
+  </data>
+  <data name="saveCanceled_str" xml:space="preserve">
+    <value>保存取消</value>
+  </data>
+  <data name="saving_str" xml:space="preserve">
+    <value>保存中...</value>
+  </data>
+</root>

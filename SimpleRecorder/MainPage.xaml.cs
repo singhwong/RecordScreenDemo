@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Graphics.Capture;
 using Windows.Graphics.DirectX;
@@ -64,6 +65,7 @@ namespace SimpleRecorder
             UseCaptureItemSizeCheckBox.IsChecked = settings.UseSourceSize;
         }
 
+        private ResourceLoader resourceLoader = ResourceLoader.GetForCurrentView();
         private async void ToggleButton_Checked(object sender, RoutedEventArgs e)
         {
             var button = (ToggleButton)sender;
@@ -87,6 +89,7 @@ namespace SimpleRecorder
                 button.IsChecked = false;
                 return;
             }
+            Record_FontIcon.Glyph = "\uE71A";
             StartCaptureInternal(item);
             // Use the capture item's size for the encoding if desired
             if (useSourceSize)
@@ -105,7 +108,7 @@ namespace SimpleRecorder
             var file = await GetTempFileAsync();
 
             // Tell the user we've started recording
-            MainTextBlock.Text = "● rec";
+            MainTextBlock.Text = resourceLoader.GetString("recording_str"); ;
             var originalBrush = MainTextBlock.Foreground;
             MainTextBlock.Foreground = new SolidColorBrush(Colors.Red);
             MainProgressBar.IsIndeterminate = true;
@@ -143,7 +146,7 @@ namespace SimpleRecorder
 
             // At this point the encoding has finished,
             // tell the user we're now saving
-            MainTextBlock.Text = "saving...";
+            MainTextBlock.Text = resourceLoader.GetString("saving_str");
 
             // Ask the user where they'd like the video to live
             var newFile = await PickVideoAsync();
@@ -152,7 +155,7 @@ namespace SimpleRecorder
                 // User decided they didn't want it
                 // Throw out the encoded video
                 button.IsChecked = false;
-                MainTextBlock.Text = "canceled";
+                MainTextBlock.Text = resourceLoader.GetString("saveCanceled_str");
                 MainProgressBar.IsIndeterminate = false;
                 await file.DeleteAsync();
                 return;
@@ -162,20 +165,25 @@ namespace SimpleRecorder
 
             // Tell the user we're done
             button.IsChecked = false;
-            MainTextBlock.Text = "done";
+            MainTextBlock.Text = resourceLoader.GetString("done_str");
             MainProgressBar.IsIndeterminate = false;
+            captureSession.Dispose();
 
             // Open the final product
             //录制完成后打开文件
-            //await Launcher.LaunchFileAsync(newFile);
+            if (AutoPlayVideo_CheckBox.IsChecked == true)
+            {
+                await Launcher.LaunchFileAsync(newFile);
+            }          
         }
 
         private void ToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
             // If the encoder is doing stuff, tell it to stop
-            //captureSession.Dispose();
+            
             //条件符合运算符
             _encoder?.Dispose();
+            Record_FontIcon.Glyph = "\uE7C8";
         }
 
         private async Task<StorageFile> PickVideoAsync()

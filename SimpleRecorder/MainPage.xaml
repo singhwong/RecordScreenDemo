@@ -6,12 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+    RequestedTheme="Dark">
     <Page.Resources>
         <Style x:Name="borderStyle" TargetType="Border">
             <Setter Property="Height" Value="30"/>
             <Setter Property="Width" Value="30"/>
-            <Setter Property="BorderBrush" Value="IndianRed"/>
+            <Setter Property="BorderBrush" Value="White"/>
         </Style>
     </Page.Resources>
     <Grid>
@@ -20,29 +21,33 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Grid Margin="10">
+        <Grid Margin="50">
             <Canvas x:Name="mainGrid" Margin="5"/>
             <Border CornerRadius="5,0,0,0" Style="{StaticResource borderStyle}" BorderThickness="1,1,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
             <Border CornerRadius="0,5,0,0" Style="{StaticResource borderStyle}" BorderThickness="0,1,1,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
             <Border CornerRadius="0,0,0,5" Style="{StaticResource borderStyle}" BorderThickness="1,0,0,1" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
             <Border CornerRadius="0,0,5,0" Style="{StaticResource borderStyle}" BorderThickness="0,0,1,1" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         </Grid>
+        <ScrollViewer Grid.Column="1" VerticalAlignment="Center" Margin="0,30">
+            <StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    
+                    <TextBlock x:Name="options_textBlock" x:Uid="options_textBlock" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Stretch" HorizontalTextAlignment="Center" />
+                    <ComboBox x:Name="QualityComboBox" CornerRadius="2" BorderThickness="0" Margin="10" MinWidth="150" HorizontalAlignment="Left"/>
+                    <ComboBox x:Name="FrameRateComboBox" CornerRadius="2" BorderThickness="0" Margin="10" MinWidth="150" HorizontalAlignment="Left" />
+                    <CheckBox x:Name="UseCaptureItemSizeCheckBox" HorizontalAlignment="Left" Margin="10" x:Uid="UseCaptureItemSizeCheckBox" MaxWidth="150"/>
+                    <CheckBox x:Name="AutoPlayVideo_CheckBox" x:Uid="AutoPlayVideo_CheckBox" Margin="10" MaxWidth="150" HorizontalAlignment="Left"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" BorderThickness="0,1,0,0" BorderBrush="Gray">
+                    <TextBlock x:Name="MainTextBlock" x:Uid="MainTextBlock" HorizontalAlignment="Stretch" HorizontalTextAlignment="Center" Margin="0,10,0,0"/>
+                    <ProgressBar x:Name="MainProgressBar" IsIndeterminate="False" Background="Transparent"/>
+                    <ToggleButton x:Name="Record_bt" CornerRadius="2" Margin="5" Height="40" Width="40" HorizontalAlignment="Center" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked">
+                        <FontIcon x:Name="Record_FontIcon" Glyph="&#xE7C8;" Foreground="Red" FontFamily="Segoe MDL2 Assets"  />
+                    </ToggleButton>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
         
-        <StackPanel Grid.Column="1" VerticalAlignment="Center">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="options" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Stretch" HorizontalTextAlignment="Center" />
-                <ComboBox x:Name="QualityComboBox" Margin="10" MinWidth="150" HorizontalAlignment="Center"/>
-                <ComboBox x:Name="FrameRateComboBox" Margin="10" MinWidth="150" HorizontalAlignment="Center" />
-                <CheckBox x:Name="UseCaptureItemSizeCheckBox" HorizontalAlignment="Center" Margin="10" Content="Use source size as video resolution" VerticalAlignment="Top" IsChecked="False" MaxWidth="150"/>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="250" BorderThickness="0,1,0,0" BorderBrush="Gray">
-                <TextBlock x:Name="MainTextBlock" Text="zzzz" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Stretch" HorizontalTextAlignment="Center" />
-                <ProgressBar x:Name="MainProgressBar" IsIndeterminate="False" Background="Transparent"/>
-                <ToggleButton Margin="5" HorizontalAlignment="Center" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked">
-                    <FontIcon Glyph="&#xE722;" FontFamily="Segoe MDL2 Assets"  />
-                </ToggleButton>
-            </StackPanel>
-        </StackPanel>
 
         <!--<Grid Grid.Column="2">
             

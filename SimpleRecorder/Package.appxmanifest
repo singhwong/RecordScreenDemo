@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap6="http://schemas.microsoft.com/appx/manifest/uap/windows10/6" IgnorableNamespaces="uap mp uap6">
-  <Identity Name="19348RobertMikhayelyanApp.SimpleScreenRecorder" Publisher="CN=singhrecordsample" Version="1.0.8.0" />
-  <mp:PhoneIdentity PhoneProductId="e5f8c715-7203-4e87-8858-098bdd016f79" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="14523wongsoft.SSRecorder" Publisher="CN=142C2F57-E79D-408C-83F9-E14BC50B8D43" Version="1.0.12.0" />
+  <mp:PhoneIdentity PhoneProductId="81c9288c-bb63-476a-856e-0a0ec5d56caa" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>Simple Screen Recorder</DisplayName>
-    <PublisherDisplayName>Robert Mikhayelyan Apps</PublisherDisplayName>
+    <DisplayName>SS Recorder</DisplayName>
+    <PublisherDisplayName>singhwong</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
@@ -15,10 +15,20 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="SimpleRecorder.App">
-      <uap:VisualElements DisplayName="Simple Screen Recorder" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="A simple screen recorder using both the Windows.Graphics.Capture and Windows.Media.Transcoding APIs." BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png">
+      <uap:VisualElements DisplayName="SSR" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="A simple screen recorder using both the Windows.Graphics.Capture and Windows.Media.Transcoding APIs." BackgroundColor="black">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png" ShortName="SSR">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo"/>
+            <uap:ShowOn Tile="wide310x150Logo"/>
+            <uap:ShowOn Tile="square310x310Logo"/>
+          </uap:ShowNameOnTiles>
         </uap:DefaultTile>
-        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png"  BackgroundColor="black"/>
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/>
+          <uap:Rotation Preference="portrait"/>
+          <uap:Rotation Preference="landscapeFlipped"/>
+          <uap:Rotation Preference="portraitFlipped"/></uap:InitialRotationPreference>
       </uap:VisualElements>
     </Application>
   </Applications>
